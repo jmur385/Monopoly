@@ -10,6 +10,4 @@ public abstract class CasillasEspeciales extends Casilla{
         System.out.println("meow");
     }
 
-    private Integer d;
-
 }

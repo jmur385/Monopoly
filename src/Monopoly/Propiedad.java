@@ -27,6 +27,4 @@ public class Propiedad extends Casilla{
         this.precioPagar = precioPagar;
     }
 
-    private Integer d;
-
 }

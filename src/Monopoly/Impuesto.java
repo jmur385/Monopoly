@@ -7,6 +7,4 @@ public class Impuesto extends CasillasEspeciales{
         super(nombre);
     }
 
-    private Integer d;
-
 }

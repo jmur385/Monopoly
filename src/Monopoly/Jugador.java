@@ -34,7 +34,4 @@ public class Jugador {
         return propiedades;
     }
 
-
-    private Integer d;
-
 }

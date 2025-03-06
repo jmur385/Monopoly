@@ -16,9 +16,6 @@ public class Juego {
         this.numeroJugadores = numeroJugadores;
     }
 
-    private Integer d;
-
-
 
 
 }

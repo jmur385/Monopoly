@@ -5,6 +5,4 @@ public class Carcel extends CasillasEspeciales{
         super(nombre);
     }
 
-    private Integer d;
-
 }

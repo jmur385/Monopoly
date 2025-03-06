@@ -16,6 +16,4 @@ public class Casilla {
         this.nombre = nombre;
     }
 
-    private Integer d;
-
 }
