@@ -26,4 +26,7 @@ public class Propiedad extends Casilla{
     public void setPrecioPagar(Integer precioPagar) {
         this.precioPagar = precioPagar;
     }
+
+    private Integer d;
+
 }

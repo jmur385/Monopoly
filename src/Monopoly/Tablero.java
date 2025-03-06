@@ -6,6 +6,8 @@ public class Tablero {
 
     private ArrayList<Casilla> casillas;
 
+    private Integer d;
+
 
 
 

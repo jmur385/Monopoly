@@ -9,4 +9,7 @@ public abstract class CasillasEspeciales extends Casilla{
     public void pagarBanco() {
         System.out.println("meow");
     }
+
+    private Integer d;
+
 }

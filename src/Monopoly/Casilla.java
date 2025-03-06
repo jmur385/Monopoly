@@ -15,4 +15,7 @@ public class Casilla {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    private Integer d;
+
 }
