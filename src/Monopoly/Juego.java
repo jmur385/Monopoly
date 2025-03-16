@@ -1,37 +1,57 @@
 package Monopoly;
 
+import java.util.List;
+import java.util.Random;
 public class Juego {
 
-    private Integer numeroJugadores;
-    private Tablero tablero;
+        private List<Jugador> jugadores;
+        private Tablero tablero;
+        private Random random;
 
-    public Juego(Integer numeroJugadores, Tablero tablero) {
-        this.numeroJugadores = numeroJugadores;
-        this.tablero = tablero;
-    }
+        public Juego(List<Jugador> jugadores) {
+            this.jugadores = jugadores;
+            this.tablero = new Tablero();
+            this.random = new Random();
+        }
 
-    public Integer getNumeroJugadores() {
-        return numeroJugadores;
-    }
+        public void iniciarJuego() {
+            while (jugadores.size() > 1) {
+                for (Jugador jugador : jugadores) {
+                    turno(jugador);
+                    if (jugador.getDinero() <= 0) {
+                        jugadores.remove(jugador);
+                    }
+                }
+            }
+            System.out.println("Ganador: " + jugadores.get(0).getNombre());
+        }
 
-    public void setNumeroJugadores(Integer numeroJugadores) {
-        this.numeroJugadores = numeroJugadores;
-    }
+        private void turno(Jugador jugador) {
+            int dado1 = random.nextInt(6) + 1;
+            int dado2 = random.nextInt(6) + 1;
+            int totalDados = dado1 + dado2;
 
-    public Tablero getTablero() {
-        return tablero;
-    }
+            jugador.setPosicion((jugador.getPosicion() + totalDados) % tablero.getCantidadCasillas());
+            Casilla casillaActual = tablero.getCasilla(jugador.getPosicion());
 
-    public void setTablero(Tablero tablero) {
-        this.tablero = tablero;
-    }
+            System.out.println(jugador.getNombre() + " lanzó " + dado1 + " y " + dado2 + ". Cayó en " + casillaActual.getNombre());
 
-    @Override
-    public String toString() {
-        final StringBuffer sb = new StringBuffer("Juego{");
-        sb.append("numeroJugadores=").append(numeroJugadores);
-        sb.append(", tablero=").append(tablero);
-        sb.append('}');
-        return sb.toString();
-    }
+            if (casillaActual.getPropietario() ==null){
+                if (jugador.getDinero() >= casillaActual.getPrecio()) {
+                    jugador.setDinero(jugador.getDinero() - casillaActual.getPrecio());
+                    casillaActual.setPropietario(jugador);
+                    System.out.println(jugador.getNombre() + (" compró la propiedad " + casillaActual.getNombre()));
+                } else
+                    System.out.println(jugador.getNombre() + (" no tiene suficiente dinero para comprar la propiedad, lo sentimos muchísimo" ));
+            }
+        }
+
+
+
+
+
+
+
+
+
 }
